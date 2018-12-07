@@ -1,5 +1,6 @@
 package com.example.silvioallgayertrindade.avaliacaodev.di.module
 
+import android.app.Application
 import android.content.Context
 import com.example.silvioallgayertrindade.avaliacaodev.BuildConfig
 import dagger.Module
@@ -32,7 +33,7 @@ object ApiModule {
     @Singleton
     @Provides
     @JvmStatic
-    fun provideRetrofit(httpClient: OkHttpClient, context: Context): Retrofit {
+    fun provideRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(httpClient)
             .baseUrl(BuildConfig.REST_API_URL)

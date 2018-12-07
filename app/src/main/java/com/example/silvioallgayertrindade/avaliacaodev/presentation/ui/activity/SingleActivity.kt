@@ -13,6 +13,8 @@ import com.example.silvioallgayertrindade.avaliacaodev.factory.DaggerViewModelFa
 import com.example.silvioallgayertrindade.avaliacaodev.presentation.view.SingleActivityView
 import com.example.silvioallgayertrindade.avaliacaodev.viewmodel.SingleActivityViewModel
 import dagger.android.AndroidInjection
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SingleActivity : AppCompatActivity(), SingleActivityView {
@@ -30,10 +32,10 @@ class SingleActivity : AppCompatActivity(), SingleActivityView {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
         activitySingleBinding = DataBindingUtil.setContentView(this, R.layout.activity_single)
+        navController = Navigation.findNavController(this, R.id.navigation_host)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(SingleActivityViewModel::class.java)
         viewModel.setup(this)
         activitySingleBinding.singleActivityViewModel = viewModel
-        navController = Navigation.findNavController(this, R.id.navigation_host)
     }
 
     override fun onSupportNavigateUp(): Boolean {

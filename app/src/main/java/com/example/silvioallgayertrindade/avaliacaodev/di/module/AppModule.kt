@@ -1,7 +1,6 @@
 package com.example.silvioallgayertrindade.avaliacaodev.di.module
 
 import android.app.Application
-import android.content.Context
 import dagger.Binds
 import dagger.Module
 
@@ -9,5 +8,6 @@ import dagger.Module
 abstract class AppModule {
 
     @Binds
-    abstract fun bindContext(application: Application): Context
+    abstract fun bindApplication(app: Application): Application
+
 }

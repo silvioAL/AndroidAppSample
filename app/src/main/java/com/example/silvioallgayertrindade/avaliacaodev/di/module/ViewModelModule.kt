@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.example.silvioallgayertrindade.avaliacaodev.di.annotation.ViewModelKey
 import com.example.silvioallgayertrindade.avaliacaodev.factory.DaggerViewModelFactory
+import com.example.silvioallgayertrindade.avaliacaodev.viewmodel.HomeFragmentViewModel
 import com.example.silvioallgayertrindade.avaliacaodev.viewmodel.SingleActivityViewModel
 import dagger.Binds
 import dagger.Module
@@ -19,4 +20,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SingleActivityViewModel::class)
     abstract fun bindSingleActivityViewModel(singleActivityViewModel: SingleActivityViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeFragmentViewModel::class)
+    abstract fun bindHomeFragmentViewModel(homeFragmentViewModel: HomeFragmentViewModel): ViewModel
 }
