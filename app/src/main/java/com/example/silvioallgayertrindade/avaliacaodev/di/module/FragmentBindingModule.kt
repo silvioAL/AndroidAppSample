@@ -8,7 +8,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class FragmentBindingModule {
 
-    @ActivityScope
     @ContributesAndroidInjector
     abstract fun bindHomeFragment(): HomeFragment
 }

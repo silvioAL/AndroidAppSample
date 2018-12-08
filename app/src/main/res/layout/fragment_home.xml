@@ -1,4 +1,4 @@
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel"
                   type="com.example.silvioallgayertrindade.avaliacaodev.viewmodel.HomeFragmentViewModel"/>
@@ -8,6 +8,13 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".presentation.ui.fragment.HomeFragment">
+
+    <com.example.silvioallgayertrindade.avaliacaodev.presentation.ui.components.ProgressIndicator
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:text="@string/common_loading" />
 
 
 </FrameLayout>

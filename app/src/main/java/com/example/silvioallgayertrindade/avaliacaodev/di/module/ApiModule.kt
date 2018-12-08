@@ -1,13 +1,13 @@
 package com.example.silvioallgayertrindade.avaliacaodev.di.module
 
-import android.app.Application
-import android.content.Context
 import com.example.silvioallgayertrindade.avaliacaodev.BuildConfig
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -35,6 +35,8 @@ object ApiModule {
     @JvmStatic
     fun provideRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(httpClient)
             .baseUrl(BuildConfig.REST_API_URL)
             .build()

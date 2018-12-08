@@ -13,11 +13,13 @@ import com.example.silvioallgayertrindade.avaliacaodev.factory.DaggerViewModelFa
 import com.example.silvioallgayertrindade.avaliacaodev.presentation.view.SingleActivityView
 import com.example.silvioallgayertrindade.avaliacaodev.viewmodel.SingleActivityViewModel
 import dagger.android.AndroidInjection
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SingleActivity : AppCompatActivity(), SingleActivityView {
+class SingleActivity : DaggerAppCompatActivity(), SingleActivityView {
 
     @Inject
     lateinit var viewModelFactory: DaggerViewModelFactory

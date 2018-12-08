@@ -1,8 +1,9 @@
 package com.example.silvioallgayertrindade.avaliacaodev.data.repository
 
 import com.example.silvioallgayertrindade.avaliacaodev.data.local.domainmodel.Event
-import com.example.silvioallgayertrindade.avaliacaodev.network.service.utils.CallbackListener
+import com.example.silvioallgayertrindade.avaliacaodev.network.service.utils.RepositoryListener
+import kotlinx.coroutines.Deferred
 
 interface EventsRepository {
-    suspend fun getEvents(callbackListener: CallbackListener<List<Event>>)
+    fun getEvents(listener: RepositoryListener<List<Event>>)
 }
