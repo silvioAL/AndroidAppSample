@@ -6,7 +6,6 @@ import com.example.silvioallgayertrindade.avaliacaodev.data.local.domainmodel.Ev
 import com.example.silvioallgayertrindade.avaliacaodev.data.local.domainmodel.Status
 import com.example.silvioallgayertrindade.avaliacaodev.data.repository.EventsRepository
 import com.example.silvioallgayertrindade.avaliacaodev.network.service.utils.RepositoryListener
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class HomeFragmentViewModel @Inject constructor(private val repositoryImpl: EventsRepository) : ViewModel() {
@@ -19,7 +18,7 @@ class HomeFragmentViewModel @Inject constructor(private val repositoryImpl: Even
         message.value = ""
     }
 
-    val listener = object : RepositoryListener<List<Event>> {
+    var listener = object : RepositoryListener<List<Event>> {
         override fun onSuccess(response: List<Event>) {
             status.value = Status.SUCCESS
             eventsList.postValue(response)
@@ -27,6 +26,7 @@ class HomeFragmentViewModel @Inject constructor(private val repositoryImpl: Even
 
         override fun onFailure(errorMessage: String) {
             status.value = Status.ERROR
+            message.value = errorMessage
         }
     }
 
